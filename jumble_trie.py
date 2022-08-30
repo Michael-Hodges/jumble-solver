@@ -25,7 +25,7 @@ class JumbleSolver():
         self.file   = file
         self._trie  = self._build_trie()
 
-    def _build_trie(self,):
+    def _build_trie(self,) -> TrieNode:
         ret = TrieNode()
         with open(self.file, encoding='utf-8') as f:
             for line in f:
@@ -36,7 +36,7 @@ class JumbleSolver():
                 start.word = True
         return ret
 
-    def solve(self, word):
+    def solve(self, word: str) -> [str]:
         """Generates sub_anagrams from the provided word"""
         ret = [word]
         def helper(built_word, word, trie_node):
